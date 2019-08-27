@@ -21,6 +21,11 @@ class Twister():
         while True:
             self.input.run()
             self.scene.run()
+            # 잘가라.. 
+#             for event in pygame.event.get():
+#                 if event.type == pygame.QUIT:
+#                     pygame.quit()
+#                     exit()
 
 
 

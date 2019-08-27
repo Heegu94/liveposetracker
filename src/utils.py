@@ -21,11 +21,11 @@ def poses2boxes(poses):
     boxes = []
     for person in poses:
         seen_bodyparts = person[np.where((person[:,0] != 0) | (person[:,1] != 0))]
-        # box = [ int(min(seen_bodyparts[:,0])),int(min(seen_bodyparts[:,1])),
-        #        int(max(seen_bodyparts[:,0])),int(max(seen_bodyparts[:,1]))]
-        mean = np.mean(seen_bodyparts, axis=0)
-        deviation = np.std(seen_bodyparts, axis = 0)
-        box = [int(mean[0]-deviation[0]), int(mean[1]-deviation[1]), int(mean[0]+deviation[0]), int(mean[1]+deviation[1])]
+        box = [ int(min(seen_bodyparts[:,0])),int(min(seen_bodyparts[:,1])),
+               int(max(seen_bodyparts[:,0])),int(max(seen_bodyparts[:,1]))]
+#         mean = np.mean(seen_bodyparts, axis=0)
+#         deviation = np.std(seen_bodyparts, axis = 0)
+#         box = [int(mean[0]-deviation[0]), int(mean[1]-deviation[1]), int(mean[0]+deviation[0]), int(mean[1]+deviation[1])]
         boxes.append(box)
     return np.array(boxes)
 
